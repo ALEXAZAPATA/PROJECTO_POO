@@ -15,7 +15,7 @@ public abstract class Incidencia implements Gestionable {
     protected List<String> historial; 
 
     public Incidencia(String equipoAfectado, String descripcion) {
-        this.id = "INC-" + idContador++; 
+        this.id= "INC-" + idContador++; 
         this.equipoAfectado = equipoAfectado;
         this.descripcion = descripcion;
         this.estado = Constantes.ESTADO_REGISTRADA; 
@@ -27,7 +27,7 @@ public abstract class Incidencia implements Gestionable {
 
     public void cambiarEstado(String nuevoEstado) {
         if (!this.estado.equals(nuevoEstado)) {
-            this.estado = nuevoEstado;
+            this.estado= nuevoEstado;
             this.registrarEvento("Cambio de estado a: " + nuevoEstado);
             System.out.println("-> [HU-03] Incidencia " + id + " actualizada a: " + nuevoEstado);
         }
@@ -48,7 +48,7 @@ public abstract class Incidencia implements Gestionable {
     }
     @Override
     public void asignarPrioridad(String prioridad) {
-        this.prioridad = prioridad;
+        this.prioridad= prioridad;
         registrarEvento("Prioridad asignada a: " + prioridad);
         System.out.println("-> [HU-02] Prioridad de " + this.id + " asignada a " + prioridad);
     }
@@ -56,7 +56,7 @@ public abstract class Incidencia implements Gestionable {
 
     @Override
     public void asignarTecnico(String tecnico) {
-        this.tecnicoAsignado = tecnico;
+        this.tecnicoAsignado= tecnico;
         registrarEvento("Técnico asignado: " + tecnico);
         System.out.println("-> [HU-04] Técnico asignado a " + this.id + ": " + tecnico);
     }
