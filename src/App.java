@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class App {
 
-    // 1. [HU-01] Registrar Nueva Incidencia
+    //  [HU-01] 
     private static void registrarNuevaIncidencia(Scanner scanner, List<Incidencia> lista) {
         System.out.println("\n--- REGISTRAR INCIDENCIA (HU-01) ---");
         System.out.print("Equipo: ");
-        String equipo = scanner.nextLine();
+        String equipo= scanner.nextLine();
         System.out.print("Descripción: ");
-        String descripcion = scanner.nextLine();
+        String descripcion= scanner.nextLine();
         System.out.print("Tipo (HARDWARE, SOFTWARE, RED): ");
-        String tipo = scanner.nextLine().toUpperCase();
+        String tipo= scanner.nextLine().toUpperCase();
 
         Incidencia nuevaIncidencia = null;
 
@@ -36,16 +36,16 @@ public class App {
     private static void accionAsignarPrioridad(Scanner scanner, List<Incidencia> lista) {
         System.out.println("\n--- ASIGNAR PRIORIDAD (HU-02) ---");
         System.out.print("ID de la incidencia: ");
-        String idBuscar = scanner.nextLine();
+        String idBuscar= scanner.nextLine();
 
 
         for (Incidencia inc : lista) {
             if (inc.getId().equalsIgnoreCase(idBuscar)) {
                 System.out.print("Nueva Prioridad: ");
                 String prioridad = scanner.nextLine();
-                inc.asignarPrioridad(prioridad); // Llama al método de la Interfaz
+                inc.asignarPrioridad(prioridad); 
                 System.out.println("Prioridad asignada a " + inc.getId());
-                return; // Salir del método una vez encontrado y procesado
+                return; 
             }
         }
 
@@ -58,7 +58,7 @@ public class App {
         String idBuscar = scanner.nextLine();
 
         for (Incidencia inc : lista) {
-            if (inc.getId().equalsIgnoreCase(idBuscar)) {
+        if (inc.getId().equalsIgnoreCase(idBuscar)) {
                 System.out.print("Nuevo Estado: ");
                 String estado = scanner.nextLine();
                 inc.cambiarEstado(estado); // Llama al método de la Clase Abstracta
@@ -70,12 +70,12 @@ public class App {
 
     // 4. [HU-04] Asignar Técnico
     private static void accionAsignarTecnico(Scanner scanner, List<Incidencia> lista) {
-        System.out.println("\n--- ASIGNAR TÉCNICO (HU-04) ---");
-        System.out.print("ID de la incidencia: ");
-        String idBuscar = scanner.nextLine();
+    System.out.println("\n--- ASIGNAR TÉCNICO (HU-04) ---");
+    System.out.print("ID de la incidencia: ");
+    String idBuscar = scanner.nextLine();
 
         for (Incidencia inc : lista) {
-            if (inc.getId().equalsIgnoreCase(idBuscar)) {
+         if (inc.getId().equalsIgnoreCase(idBuscar)) {
                 System.out.print("Nombre del Técnico: ");
                 String tecnico = scanner.nextLine();
                 inc.asignarTecnico(tecnico); // Llama al método de la Interfaz
@@ -87,12 +87,12 @@ public class App {
 
     // 5. [HU-05] Consultar Incidencias
     private static void consultarIncidencias(List<Incidencia> lista) {
-        System.out.println("\n--- LISTA DE INCIDENCIAS (HU-05) ---");
-        System.out.println("ID | TIPO | ESTADO | PRIORIDAD | TÉCNICO");
+     System.out.println("\n--- LISTA DE INCIDENCIAS (HU-05) ---");
+    System.out.println("ID | TIPO | ESTADO | PRIORIDAD | TÉCNICO");
         System.out.println("----------------------------------------");
 
         for (Incidencia inc : lista) {
-            // Se usa concatenación simple y Polimorfismo con obtenerTipoEspecifico()
+          
             System.out.println(inc.getId() + " | " +
                     inc.obtenerTipoEspecifico() + " | " +
                     inc.getEstado() + " | " +
@@ -105,10 +105,10 @@ public class App {
     // 6. [HU-06] Generar Reporte
     private static void accionGenerarReporte(List<Incidencia> lista) {
 
-        int activas = 0;
-        int hardware = 0;
-        int software = 0;
-        int red = 0;
+        int activas= 0;
+        int hardware= 0;
+        int software= 0;
+        int red= 0;
 
         for (Incidencia i : lista) {
 
@@ -128,7 +128,7 @@ public class App {
         }
 
         System.out.println("\n--- REPORTE GENERAL HU-06 ---");
-        System.out.println("Total de Incidencias: " + lista.size());
+     System.out.println("Total de Incidencias: " + lista.size());
         System.out.println("Activas/Pendientes: " + activas);
 
         System.out.println("Distribución por Tipo:");
@@ -165,7 +165,7 @@ public class App {
         do {
             mostrarMenu();
             if (scanner.hasNextInt()) {
-                opcion = scanner.nextInt();
+                opcion= scanner.nextInt();
                 scanner.nextLine();
 
                 switch (opcion) {
