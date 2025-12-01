@@ -66,9 +66,15 @@ public abstract class Incidencia implements Gestionable {
     }
     
 
-    public String getId() { return id; }
-    public String getEstado() { return estado; }
-    public String getPrioridad() { return prioridad; }
+    public String getId() { 
+        return id; 
+    }
+    public String getEstado() { 
+        return estado; 
+    }
+    public String getPrioridad() {
+        return prioridad; 
+    }
     public String getTecnicoAsignado() {
         return tecnicoAsignado;
     }
